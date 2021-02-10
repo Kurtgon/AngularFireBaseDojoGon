@@ -1,0 +1,108 @@
+<h1><small>Nombre del luchador</small></h1>
+<hr>
+
+<div class="row text-right">
+    <div class="col">
+        <button class="btn btn-danger"
+                routerLink="/dojo">
+            <i class=" fa fa-arrow-left"></i>
+            Volver
+        </button>
+    </div>
+</div>
+
+
+<div class="row mt-3">
+    <div class="col">
+
+        <form (ngSubmit)="guardar(f)"
+                #f="ngForm">
+            <div class="form-group">
+                <label for="">Firebase ID</label>
+                <input type="text"
+                        class="form-control"
+                        placeholder="Firebase ID"
+                        [(ngModel)]="luchador.id"
+                        name="id"
+                        disabled="disabled">
+                <small class="form-text text-muted">Campo autogenerado</small>
+            </div>
+
+            <div class="form-group">
+                <label for="">Nombre</label>
+                <input type="text"
+                        class="form-control"
+                        placeholder="Nombre del Luchador"
+                        [(ngModel)]="luchador.nombre"
+                        name="nombre"
+                        required>
+            </div>
+            
+            <div class="form-group">
+                <label for="">Apellidos</label>
+                <input type="text"
+                        class="form-control"
+                        placeholder="Apellidos del Luchador"
+                        [(ngModel)]="luchador.apellidos"
+                        name="apellidos"
+                        required>
+            </div>
+
+            <div class="form-group">
+                <label for="">Peso</label>
+                <input type="text"
+                        class="form-control"
+                        placeholder="Peso en kg del Luchador"
+                        [(ngModel)]="luchador.peso"
+                        name="peso"
+                        required>
+            </div>
+
+            <div class="form-group">
+                <label for="">Altura</label>
+                <input type="text"
+                        class="form-control"
+                        placeholder="Altura en m del Luchador"
+                        [(ngModel)]="luchador.altura"
+                        name="altura"
+                        required>
+            </div>
+
+            
+            <div class="form-group">
+                <label for="">Disciplina</label>
+                <input type="text"
+                        class="form-control"
+                        placeholder="Arte Marcial del Luchador"
+                        [(ngModel)]="luchador.disciplina"
+                        name="disciplina"
+                        required>
+            </div>
+
+            <!--
+            <div class="input-group mb-3 mt-3">
+                <label class="input-group-text" for="inputGroupSelect01">Disciplinas</label>
+                <select class="form-select" id="inputGroupSelect01" requiered>
+                <option selected="">Elige tu arte marcial...</option>
+                <option value="1">KickBoxing</option>
+                <option value="2">Taichi</option>
+                <option value="3">MMA</option>
+                <option value="4">Boxing</option>
+                <option value="5">Kunfu</option>
+                <option value="6">Karate</option>
+                <option value="7">Ninjutsu</option>
+                <option value="8">Jiujitsu</option>
+            </select>
+            </div>
+            -->
+        <hr>
+        <div class="form-group text-center">
+           <button type="submit"
+                    class="btn btn-danger w-25">
+                <i class="fa fa-save"></i>
+                Guardar
+                </button>
+        </div>
+        </form>
+    </div>
+</div>

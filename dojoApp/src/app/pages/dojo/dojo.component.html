@@ -1,0 +1,68 @@
+
+<h1>DOJO GON: Luchadores</h1>
+<hr>
+
+<div class="row">
+    <div class="col text-right">
+        <button routerLink ="/luchador/nuevo" class="btn btn-danger">
+            <i class="fa fa-plus"></i>
+            Agregar
+        </button>
+    </div>
+
+</div>
+
+<table *ngIf="!cargando && luchadores.length > 0"  class="table table-dark table-hover mt-3">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Peso</th>
+        <th scope="col">Altura</th>
+        <th scope="col">Disciplina</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let luchador of luchadores; let i = index">
+        <th scope="row">{{i +1}}</th>
+        <td>{{luchador.nombre}}</td>
+        <td>{{luchador.apellidos}}</td>
+        <td>{{luchador.peso}}</td>
+        <td>{{luchador.altura}}</td>
+        <td>{{luchador.disciplina}}</td>
+        <td>
+          <button class="btn btn-danger mr-1"
+              [routerLink]="[ '/luchador', luchador.id ]">
+            <i class="fa fa-pen"></i>
+          </button>
+          <button class="btn btn-danger"
+                  (click)="eliminarLuchador( luchador, i )"> <!-- Cuando damos clic en el botón eliminaremos al luchador -->
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<!-- Alerta cuando no hay elementos en la base de datos -->
+  <div *ngIf="!cargando && luchadores.length ===0" 
+    class="alert alert-warning text-center mt-3">
+    <h4 class="alert-heading">No hay luchadores</h4>
+    <p>
+      <i class="fa fa-exclamation  fa-2x"></i>
+    </p>
+</div>
+
+<!-- Solo se mostrará si está cargando con el ngIf nuestro loading -->
+  <div *ngIf="cargando" class="alert alert-info text-center mt-3">
+      <h4 class="alert-heading">Cargando</h4>
+      <p>
+        <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+      </p>
+      <p class="mb-0">
+        Espere por favor
+      </p>
+  </div>
+

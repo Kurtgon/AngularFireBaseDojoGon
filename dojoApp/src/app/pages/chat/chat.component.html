@@ -1,0 +1,32 @@
+
+<h2>Dojo Chat</h2>
+<hr>
+
+<div class="app-mensajes" id="app-mensajes">
+    <div class="" *ngFor="let chat of _cs.chats"
+        [ngClass]="{'text-right': _cs.usuario.uid == chat.uid}">
+        <span class="badge"
+        [ngClass]="{'badge rounded-pill bg-dark text-light': _cs.usuario.uid == chat.uid,
+            'badge bg-danger': _cs.usuario.uid != chat.uid }">
+            {{chat.nombre}}</span>
+        <p>{{ chat.mensaje }}</p>
+    </div>
+
+    <!--
+    <div class="">
+        <span class="badge bg-danger">Gonzalo</span>
+        <p>Este es un mensaje de prueba</p>
+    </div>
+
+    <div class="">
+        <span class="badge bg-dark">Mar</span>
+        <p>Buenas Gonzalo</p>
+    </div>
+    -->
+
+</div>
+
+<input type="text" name="mensaje" [(ngModel)]="mensaje"
+        class="form-control"
+        (keyup.enter)="enviarMensaje()"
+        placeholder="Enviar mensaje">

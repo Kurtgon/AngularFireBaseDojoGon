@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "dojogon-50d3a": {
+      "hosting": {
+        "dojoApp": [
+          "dojogon-50d3a"
+        ]
+      }
+    }
+  }
+}
